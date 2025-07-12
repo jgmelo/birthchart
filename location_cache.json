@@ -2,5 +2,17 @@
   "paris,france": {
     "lat": 48.8588897,
     "lon": 2.320041
+  },
+  "ulm,germany": {
+    "lat": 48.3984968,
+    "lon": 9.9912458
+  },
+  "cambé,brazil": {
+    "lat": -23.2782035,
+    "lon": -51.2779583
+  },
+  "belo horizonte,brazil": {
+    "lat": -19.9227318,
+    "lon": -43.9450948
   }
 }

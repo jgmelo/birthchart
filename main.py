@@ -7,6 +7,9 @@ from helpers import get_cached_location, cache_location
 from timezonefinder import TimezoneFinder
 import pytz
 import sys
+from chart.drawing import render_chart
+
+import chart.astro_calculations as astrocalc  # Assuming this is the module with get_chart_data
 
 # ------------------------------
 # 1. Parse CLI arguments
@@ -94,8 +97,6 @@ def main():
     print(f"🛰️ UTC time: {utc_dt}")
     print(f"📌 Coordinates: lat={lat:.4f}, lon={lon:.4f}\n")
 
-    exit()
-    
     # Placeholder: Call astro calculations
     print("🔭 Calculating planetary positions...")
     chart_data = {
@@ -105,13 +106,14 @@ def main():
         "aspects": [],
         "ascendant": None,
     }
-    # chart_data = astro_calculations.get_chart_data(utc_dt, lat, lon)
+    
+    chart_data = astrocalc.get_chart_data(utc_dt, lat, lon)
 
     # Placeholder: Call chart rendering
     print("🎨 Rendering chart...")
-    # chart_generator.render_chart(chart_data, name=args.name)
+    render_chart(chart_data, name=args.name)
 
-    print("\n✅ Done! (Chart generation logic not yet implemented)")
+    print("\n✅ Done!")
 
 if __name__ == "__main__":
     main()
