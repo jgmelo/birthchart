@@ -14,5 +14,9 @@
   "belo horizonte,brazil": {
     "lat": -19.9227318,
     "lon": -43.9450948
+  },
+  "santos,brazil": {
+    "lat": -23.9335988,
+    "lon": -46.3286399
   }
 }

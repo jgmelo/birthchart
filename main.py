@@ -118,7 +118,7 @@ def main():
         text = interpretation.get_or_generate(
             key, lambda n=name, r=result: interpretation.default_generate(n, r)
         )
-        interpretation.write_interpretation(text)
+        interpretation.write_interpretation(f"Interpretation for {name}: {result}\n{text}")
         print(text)
 
     # Placeholder: Call chart rendering

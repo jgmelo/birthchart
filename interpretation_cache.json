@@ -1,1 +1,7 @@
-{}
+{
+  "angular_houses:['Sun', 'Mars']": "Interpretation for angular_houses: ['Sun', 'Mars']",
+  "aspects:['Sun square Moon', 'Moon square Mars', 'Mercury conjunction Venus', 'Mercury trine Jupiter', 'Mercury trine Saturn', 'Venus trine Jupiter', 'Venus trine Saturn', 'Jupiter conjunction Saturn']": "Interpretation for aspects: ['Sun square Moon', 'Moon square Mars', 'Mercury conjunction Venus', 'Mercury trine Jupiter', 'Mercury trine Saturn', 'Venus trine Jupiter', 'Venus trine Saturn', 'Jupiter conjunction Saturn']",
+  "rulership:['Mercury', 'Venus']": "Interpretation for rulership: ['Mercury', 'Venus']",
+  "dignities:{'exaltation': ['Saturn'], 'detriment': ['Mars'], 'fall': []}": "Interpretation for dignities: {'exaltation': ['Saturn'], 'detriment': ['Mars'], 'fall': []}",
+  "planetary_strength:{'Sun': 0, 'Moon': 0, 'Mercury': 5, 'Venus': 5, 'Mars': -5, 'Jupiter': 0, 'Saturn': 4}": "Interpretation for planetary_strength: {'Sun': 0, 'Moon': 0, 'Mercury': 5, 'Venus': 5, 'Mars': -5, 'Jupiter': 0, 'Saturn': 4}"
+}

@@ -3,9 +3,7 @@ import os
 import openai
 
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-3.5-turbo")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-if OPENAI_API_KEY:
-    openai.api_key = OPENAI_API_KEY
+OPENAI_API_KEY = "hidden"
 
 CACHE_FILE = "interpretation_cache.json"
 INTERPRETATIONS_FILE = "interpretations.txt"
@@ -25,8 +23,8 @@ def save_cache(cache):
 
 def get_or_generate(key, generator):
     cache = load_cache()
-    if key in cache:
-        return cache[key]
+    # if key in cache:
+    #     return cache[key]
     text = generator()
     cache[key] = text
     save_cache(cache)
@@ -34,17 +32,22 @@ def get_or_generate(key, generator):
 
 def default_generate(metric_name, result):
     """Generate an interpretation using OpenAI's chat completion API."""
+    print("✨ In default_generate")
     prompt = (
-        "Provide a concise astrological interpretation for the following metric\n"
+        "Provide a concise astrological interpretation for the following metric, in Brazilian Portuguese:\n"
         f"Metric: {metric_name}\nResult: {result}\n"
     )
+    client = openai.OpenAI(api_key=OPENAI_API_KEY)  # or set via environment variable
     try:
-        response = openai.ChatCompletion.create(
+        print("🔍 Generating interpretation with OpenAI API...")
+        response = client.chat.completions.create(
             model=OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
         )
-        text = response["choices"][0]["message"]["content"].strip()
-    except Exception:
+        text = response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"❗ Error: {e}")
+        print("❌ Error generating interpretation with OpenAI API. Using default text.")
         text = f"Interpretation for {metric_name}: {result}"
     return text
 

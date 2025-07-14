@@ -1,9 +1,9 @@
 # build_command.py
 
-NAME = "João"
-DATE = "1984-07-17"
-TIME = "15:30"
-CITY = "Belo Horizonte"
+NAME = "Camys"
+DATE = "1981-05-10"
+TIME = "16:05"
+CITY = "Santos"
 COUNTRY = "Brazil"
 
 def build_command_from_dict(param_dict, base_command="python main.py"):
