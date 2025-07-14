@@ -8,8 +8,10 @@ from timezonefinder import TimezoneFinder
 import pytz
 import sys
 from chart.drawing import render_chart
+import interpretation
 
 import chart.astro_calculations as astrocalc  # Assuming this is the module with get_chart_data
+import chart.metrics as metrics
 
 # ------------------------------
 # 1. Parse CLI arguments
@@ -108,6 +110,16 @@ def main():
     }
     
     chart_data = astrocalc.get_chart_data(utc_dt, lat, lon)
+
+    # Compute metrics
+    metric_results = metrics.compute_all(chart_data)
+    for name, result in metric_results.items():
+        key = f"{name}:{result}"
+        text = interpretation.get_or_generate(
+            key, lambda n=name, r=result: interpretation.default_generate(n, r)
+        )
+        interpretation.write_interpretation(text)
+        print(text)
 
     # Placeholder: Call chart rendering
     print("🎨 Rendering chart...")
