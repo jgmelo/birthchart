@@ -10,6 +10,7 @@ import sys
 from chart.drawing import render_chart
 
 import chart.astro_calculations as astrocalc  # Assuming this is the module with get_chart_data
+import chart.metrics as metrics
 
 # ------------------------------
 # 1. Parse CLI arguments
@@ -108,6 +109,11 @@ def main():
     }
     
     chart_data = astrocalc.get_chart_data(utc_dt, lat, lon)
+
+    # Compute metrics
+    metric_results = metrics.compute_all(chart_data)
+    for name, result in metric_results.items():
+        print(f"{name}: {result}")
 
     # Placeholder: Call chart rendering
     print("🎨 Rendering chart...")
